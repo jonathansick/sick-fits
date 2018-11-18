@@ -13,7 +13,7 @@ class MyApp extends App {
           <Component />
         </Page>
       </Container>
-    )
+    );
   }
 }
 
