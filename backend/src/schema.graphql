@@ -1,15 +1,18 @@
-# User-facing GraphQL schema served by Yoga.
+# Client-facing GraphQL schema served by Yoga.
 
-type Dog {
-  name: String!
-}
+# Item gets imported from the generated prisma.graphql since it's identical.
+# import * from './generated/prisma.graphql'
 
-# FIXME Dummy mutation to get started
 type Mutation {
-  createDog(name: String!): Dog
+  createItem(
+    title: String
+    description: String
+    price: Int
+    image: String
+    largeImage: String
+  ): Item!
 }
 
-# FIXME Dummy query to get started
 type Query {
-  dogs: [Dog]!
+  items: [Item]!
 }

@@ -1,7 +1,9 @@
 const Query = {
-  dogs(parent, args, ctx, info) {
-    global.dogs = global.dogs || [];
-    return global.dogs;
+  async items(parent, args, ctx, info) {
+    console.log('Getting items');
+    // query.items() comes from prisma.graphql
+    const items = await ctx.db.query.items();
+    return items;
   },
 };
 
