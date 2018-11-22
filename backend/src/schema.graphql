@@ -1,0 +1,11 @@
+# User-facing GraphQL schema
+
+# FIXME Dummy mutation to get started
+type Mutation {
+  hi: String
+}
+
+# FIXME Dummy query to get started
+type Query {
+  hi: String
+}
