@@ -1,11 +1,15 @@
-# User-facing GraphQL schema
+# User-facing GraphQL schema served by Yoga.
+
+type Dog {
+  name: String!
+}
 
 # FIXME Dummy mutation to get started
 type Mutation {
-  hi: String
+  createDog(name: String!): Dog
 }
 
 # FIXME Dummy query to get started
 type Query {
-  hi: String
+  dogs: [Dog]!
 }
