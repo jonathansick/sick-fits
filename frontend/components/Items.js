@@ -1,8 +1,9 @@
-// Item component
+// Items component fetches fetches data for items
 
 import React, { Component } from 'react';
 import { Query } from 'react-apollo';
 import gql from 'graphql-tag';
+import styled from 'styled-components';
 
 const ALL_ITEMS_QUERY = gql`
   query ALL_ITEMS_QUERY {
@@ -17,19 +18,39 @@ const ALL_ITEMS_QUERY = gql`
   }
 `;
 
+const Centre = styled.div`
+  text-align: center;
+`;
+
+const ItemsList = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 60px;
+  max-width: ${props => props.theme.maxWidth};
+  margin: 0 auto;
+`;
+
 export default class Items extends Component {
   render() {
     return (
-      <div>
+      <Centre>
         <p>Items!</p>
         <Query query={ALL_ITEMS_QUERY}>
           {({ data, error, loading }) => {
+            // Always check for error and loading states first
             if (loading) return <p>Loading...</p>;
             if (error) return <p>Error: {error.message}</p>;
-            return <p>I found {data.items.length} items</p>;
+            // Returns items ItemsList available
+            return (
+              <ItemsList>
+                {data.items.map(item => (
+                  <p>{item.title}</p>
+                ))}
+              </ItemsList>
+            );
           }}
         </Query>
-      </div>
+      </Centre>
     );
   }
 }
