@@ -7,6 +7,7 @@ import Title from './styles/Title';
 import ItemStyles from './styles/ItemStyles';
 import PriceTag from './styles/PriceTag';
 import formatMoney from '../lib/formatMoney';
+import DeleteItem from './DeleteItem';
 
 export default class Item extends Component {
   static propTypes = {
@@ -30,8 +31,8 @@ export default class Item extends Component {
           <Link href={{ pathname: 'update', query: { id: item.id } }}>
             <a>Edit ✏️</a>
           </Link>
-          <button type="submit">Add to cart</button>
-          <button type="button">Delete</button>
+          <button type="submit">Add to cart 🛒</button>
+          <DeleteItem id={item.id}>Delete 🗑</DeleteItem>
         </div>
       </ItemStyles>
     );

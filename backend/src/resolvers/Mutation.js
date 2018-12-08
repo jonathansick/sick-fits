@@ -24,6 +24,18 @@ const Mutations = {
       info,
     });
   },
+
+  // Delete a single item
+  async deleteItem(parent, args, ctx, info) {
+    const where = { id: args.id };
+    // 1. Find item (passing in raw graphql)
+    const item = await ctx.db.query.item({ where }, `{ id title }`);
+    console.log(item);
+    // 2. Check if they own it or have permissions
+    // TODO
+    // 3. Delete it
+    return ctx.db.mutation.deleteItem({ where }, info);
+  },
 };
 
 module.exports = Mutations;
