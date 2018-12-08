@@ -1,3 +1,5 @@
+// Graphql Query resolvers for the public API.
+
 const { forwardTo } = require('prisma-binding');
 
 const Query = {
@@ -7,8 +9,11 @@ const Query = {
   //   const items = await ctx.db.query.items();
   //   return items;
   // },
-  // Forward items Yoga directly to items Query in prisma.graphql
+
+  // Forward these to queries directly to Prisma because they're already
+  // implemented in the DB's prisma.graphql schema
   items: forwardTo('db'),
+  item: forwardTo('db'),
 };
 
 module.exports = Query;
