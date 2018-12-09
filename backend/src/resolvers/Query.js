@@ -14,6 +14,7 @@ const Query = {
   // implemented in the DB's prisma.graphql schema
   items: forwardTo('db'),
   item: forwardTo('db'),
+  itemsConnection: forwardTo('db'),
 };
 
 module.exports = Query;

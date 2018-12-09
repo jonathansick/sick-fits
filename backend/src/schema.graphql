@@ -22,4 +22,6 @@ type Query {
 
   # matches a backend query
   item(where: ItemWhereUniqueInput!): Item
+
+  itemsConnection(where: ItemWhereInput): ItemConnection!
 }
